@@ -187,3 +187,21 @@ function runQuestion5() {
     let min = Math.min(num1, num2, num3);
     showOutput("output5", `Max element = ${max}<br>Min element = ${min}`);
 }
+
+function toggleCode(questionNum) {
+    var codeDiv = document.getElementById('code' + questionNum);
+    var preCode = document.getElementById('preCode' + questionNum);
+    var btn = document.getElementById('btnCode' + questionNum);
+    
+    if (codeDiv.style.display === 'none') {
+        var funcName = 'runQuestion' + questionNum;
+        var funcCode = window[funcName].toString();
+        preCode.innerText = funcCode;
+        codeDiv.style.display = 'block';
+        btn.textContent = 'Hide Code';
+    } else {
+        codeDiv.style.display = 'none';
+        btn.textContent = 'Show My Code';
+    }
+}
+
