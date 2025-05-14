@@ -2,28 +2,6 @@
 /*
 
 
-4- Write a program that allows the user to insert an integer then print negative if it is
-negative number otherwise print positive.
-Example 1
-Input: -5
-Output negative
-Example2
-Input: 10
-Output positive
-
-5- Write a program that take 3 integers from user then print the max element
-and the min element.
-Example 1
-Input:7,8,5
-Output:
-max element = 8
-min element = 5
-Example2
-Input: 3 6 9
-Outputs:
-Max element = 9
-Min element = 3
-
 6- Write a program that allows the user to insert integer number then
 check If a number is oven or odd
 7- Example 1
@@ -194,30 +172,99 @@ function runQuestion3() {
         showOutput("output3", "Please enter valid numbers");
         return;
     }
-    else{
+    else {
         num1 = +num1;
         num2 = +num2;
+        if (num1 > num2) {
+            showOutput("output3", num1);
+        }
+        else if (num1 < num2) {
+            showOutput("output3", num2);
+        }
+        else {
+            showOutput("output3", "Both numbers are equal");
+        }
     }
-    let max = Math.max(num1, num2);
-    showOutput("output3", max);
 }
+
+
+// 4- Write a program that allows the user to insert an integer then print negative if it is
+// negative number otherwise print positive.
+// Example 1
+// Input: -5
+// Output negative
+// Example2
+// Input: 10
+// Output positive
+
 
 function runQuestion4() {
-    let number = parseInt(prompt("Enter a number:"));
-    if (number < 0) {
-        showOutput("output4", "negative");
-    } else {
-        showOutput("output4", "positive");
+    let num1 = prompt("Enter a number:");
+    if (isNaN(num1) || num1 === "") {
+        alert("Please enter valid numbers");
+        showOutput("output4", "Please enter valid numbers");
+        return;
+    }
+    else {
+        num1 = +num1;
+        if (num1 >= 0) {
+            showOutput("output4", "Positive");
+        }
+        else {
+            showOutput("output4", "Negative");
+        }
     }
 }
 
+// 5- Write a program that take 3 integers from user then print the max element
+// and the min element.
+// Example 1
+// Input:7,8,5
+// Output:
+// max element = 8
+// min element = 5
+// Example2
+// Input: 3 6 9
+// Outputs:
+// Max element = 9
+// Min element = 3
+
+
 function runQuestion5() {
-    let num1 = parseInt(prompt("Enter first number:"));
-    let num2 = parseInt(prompt("Enter second number:"));
-    let num3 = parseInt(prompt("Enter third number:"));
-    let max = Math.max(num1, num2, num3);
-    let min = Math.min(num1, num2, num3);
-    showOutput("output5", `Max element = ${max}<br>Min element = ${min}`);
+    let num1 = prompt("Enter first number:");
+    let num2 = prompt("Enter second number:");
+    let num3 = prompt("Enter third number:");
+    if (isNaN(num1) || isNaN(num2) || isNaN(num3) || num1 === "" || num2 === "" || num3 === "") {
+        alert("Please enter valid numbers");
+        showOutput("output5", "Please enter valid numbers");
+        return;
+    }
+    else {
+        num1 = +num1;
+        num2 = +num2;
+        num3 = +num3;
+        let max = 0;
+        let min = 0;
+        if(num1 > num2 && num1 > num3) {
+            max = num1;
+        }
+        else if(num2 > num1 && num2 > num3) {
+            max = num2;
+        }
+        else {
+            max = num3;
+        }
+        if(num1 < num2 && num1 < num3) {
+            min = num1;
+        }
+        else if(num2 < num1 && num2 < num3) {
+            min = num2;
+        }
+        else {
+            min = num3;
+        }
+        showOutput("output5", "Max element = " + max + "<br>" + "Min element = " + min);
+    }
 }
 
 function toggleCode(questionNum) {
