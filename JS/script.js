@@ -2,30 +2,6 @@
 /*
 
 
-6- Write a program that allows the user to insert integer number then
-check If a number is oven or odd
-7- Example 1
-Input: 8
-Output: even
-Example 2
-Input: 7
-Output: odd
-
-8- Write a program that take character from user then if it is vowel chars (a,e,I,o,u)
-then print vowel otherwise print consonant
-Example1
-Input: O
-Output: vowel
-Example 2
-Input: b
-Output:
-Consonant
-
-9- Writeaprogramthat allowsusertoinsertintegerthenprintallnumbersbetween1to
-that’s number
-Example Input 5
-Output 1, 2, 3, 4, 5
-
 10- Write a program that allows userto insert integerthen print a multiplication table up to 12.
 Example
 Input: 5
@@ -245,25 +221,102 @@ function runQuestion5() {
         num3 = +num3;
         let max = 0;
         let min = 0;
-        if(num1 > num2 && num1 > num3) {
+        if (num1 > num2 && num1 > num3) {
             max = num1;
         }
-        else if(num2 > num1 && num2 > num3) {
+        else if (num2 > num1 && num2 > num3) {
             max = num2;
         }
         else {
             max = num3;
         }
-        if(num1 < num2 && num1 < num3) {
+        if (num1 < num2 && num1 < num3) {
             min = num1;
         }
-        else if(num2 < num1 && num2 < num3) {
+        else if (num2 < num1 && num2 < num3) {
             min = num2;
         }
         else {
             min = num3;
         }
         showOutput("output5", "Max element = " + max + "<br>" + "Min element = " + min);
+    }
+}
+
+// 6- Write a program that allows the user to insert integer number then
+// check If a number is oven or odd
+// 7- Example 1
+// Input: 8
+// Output: even
+// Example 2
+// Input: 7
+// Output: odd
+function runQuestion6() {
+    let num1 = prompt("Enter a number:");
+    if (isNaN(num1) || num1 === "") {
+        alert("Please enter valid numbers");
+        showOutput("output6", "Please enter valid numbers");
+        return;
+    }
+    else {
+        num1 = +num1;
+        if (num1 % 2 === 0) {
+            showOutput("output6", "Even");
+        }
+        else {
+            showOutput("output6", "Odd");
+        }
+    }
+}
+
+// Write a program that take character from user then if it is vowel chars (a,e,I,o,u) then print vowel otherwise print consonant
+// Example1
+// Input: O
+// Output: vowel
+// Example 2
+// Input: b-+0
+// Output:
+// Consonant
+function runQuestion7() {
+    let char = prompt("Enter a character:");
+    if (char === null || char.trim() === ""||!isNaN(char)) {
+        showOutput("output7", "You cancelled the prompt");
+        alert("Please enter a character");
+    }
+    else {
+        char = char.toLowerCase();
+        if (char.length === 1) {
+            if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u') {
+                showOutput("output7", "Vowel");
+            }
+            else {
+                showOutput("output7", "Consonant");
+            }
+        }
+        else {
+            alert("Please enter a valid character");
+            showOutput("output7", "Please enter a valid character");
+        }
+    }
+}
+
+// Write a program that allows user to insert integer then print all numbers between 1 to that’s number
+// Example Input 5
+// Output 1, 2, 3, 4, 5
+function runQuestion8(){
+    let num1 = prompt("Enter a number:");
+    if (isNaN(num1) || num1 === "") {
+        alert("Please enter valid numbers");
+        showOutput("output8", "Please enter valid numbers");
+        return;
+    }
+    else {
+        num1 = +num1;
+        let result = "";
+        for (let i = 1; i <= num1; i++) {
+            result += i + " ";
+        }
+        showOutput("output8", result);
     }
 }
 
@@ -283,4 +336,8 @@ function toggleCode(questionNum) {
         btn.textContent = 'Show My Code';
     }
 }
+
+
+
+
 
