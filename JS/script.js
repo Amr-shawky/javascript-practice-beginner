@@ -1,27 +1,6 @@
-// 1- Write a program that allow to user enter number then printit
-// Example
-// Input: 5
-// Output: 5
-let number = prompt("Enter a number;");
-console.log(number);
-window.alert(number);
-
 
 /*
-2- Write a program that take number from user then print yes if that number can divide by 3
-and 4 otherwise print no
-Example1
-Input: 12 Output Yes
-Example 2
-Input: 9 Output No
 
-3- Write a program that allows the user to insert 2 integers then print the max
-Example1
-Input: 3 5
-Output: 5
-Example 2
-Input: 10 7
-Output: 10
 
 4- Write a program that allows the user to insert an integer then print negative if it is
 negative number otherwise print positive.
@@ -149,23 +128,76 @@ function showOutput(id, content) {
     output.classList.add('show');
 }
 
+// 1- Write a program that allow to user enter number then printit
+// Example
+// Input: 5
+// Output: 5
 function runQuestion1() {
-    let number = prompt("Enter a number:");
-    showOutput("output1", number);
+    let input = prompt("Enter a number:");
+    if (input === null || input.trim() === "") {
+        showOutput("output1", "You cancelled the prompt");
+        alert("Please enter a number");
+    }
+    else {
+        let number = +input;
+        if (!isNaN(number)) {
+            showOutput("output1", number);
+        }
+        else {
+            alert("Please enter a valid number");
+            showOutput("output1", "Please enter a valid number");
+        }
+    }
 }
+// 2- Write a program that take number from user then print yes if that number can divide by 3
+// and 4 otherwise print no
+// Example1
+// Input: 12 Output Yes
+// Example 2
+// Input: 9 Output No
 
 function runQuestion2() {
-    let number = parseInt(prompt("Enter a number:"));
-    if (number % 3 === 0 && number % 4 === 0) {
-        showOutput("output2", "Yes");
-    } else {
-        showOutput("output2", "No");
+    let input = prompt("Enter a number:");
+    if (input === null || input.trim() === "") {
+        showOutput("output2", "You cancelled the prompt");
+        alert("Please enter a number");
+    }
+    else {
+        let number = +input;
+        if (!isNaN(number)) {
+            if (number % 3 === 0 && number % 4 === 0) {
+                showOutput("output2", "Yes");
+            } else {
+                showOutput("output2", "No");
+            }
+        }
+        else {
+            alert("Please enter a valid number");
+            showOutput("output2", "Please enter a valid number");
+        }
     }
 }
 
+// 3- Write a program that allows the user to insert 2 integers then print the max
+// Example1
+// Input: 3 5
+// Output: 5
+// Example 2
+// Input: 10 7
+// Output: 10
+
 function runQuestion3() {
-    let num1 = parseInt(prompt("Enter first number:"));
-    let num2 = parseInt(prompt("Enter second number:"));
+    let num1 = prompt("Enter first number:");
+    let num2 = prompt("Enter second number:");
+    if (isNaN(num1) || isNaN(num2) || num1 === "" || num2 === "") {
+        alert("Please enter valid numbers");
+        showOutput("output3", "Please enter valid numbers");
+        return;
+    }
+    else{
+        num1 = +num1;
+        num2 = +num2;
+    }
     let max = Math.max(num1, num2);
     showOutput("output3", max);
 }
@@ -192,7 +224,7 @@ function toggleCode(questionNum) {
     var codeDiv = document.getElementById('code' + questionNum);
     var preCode = document.getElementById('preCode' + questionNum);
     var btn = document.getElementById('btnCode' + questionNum);
-    
+
     if (codeDiv.style.display === 'none') {
         var funcName = 'runQuestion' + questionNum;
         var funcCode = window[funcName].toString();
