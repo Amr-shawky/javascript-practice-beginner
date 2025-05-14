@@ -375,7 +375,7 @@ function runQuestion13() {
             days = 30;
         }
         else if(month === 2) {
-            days = 28; // Assuming non-leap year
+            days = 28; 
         }
         else {
             days = "Invalid month";
